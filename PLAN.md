@@ -1,0 +1,64 @@
+# Citoyen — product and delivery plan
+
+Decision date: 17 November 2026.
+
+## Goal and V1 boundary
+
+Help people study the French government's Livret du citoyen on their phone, moving between French and English without losing their place. V1 is a usable reading guide. It does not require accounts, a paid service, quizzes, AI generation or a database.
+
+## 1. Preserve content before enhancing it
+
+Keep every original page in order, grouped under the five original parts and appendices. Pair the two languages through a shared page ID. Do not summarize away examples, sidebars, anthem verses, tables or founding texts. The French transcription is the closer source; English is an explicitly unofficial study translation. Keep editorial additions visibly separate and dated, and attach corrections to the affected pages instead of hiding them at the end.
+
+Implemented: all 83 page pairs, original order and page links, 14 attached editorial notes, readable tables and a complete notes page. Source content has exact automated coverage checks. The app's public content omits private file metadata.
+
+Remaining content work: compare the supplied PDF with the current official download; inspect and recreate the page 21 administrative map and other instructionally necessary images with appropriate attribution and alternative text. The user has not supplied an attached PDF in this turn, and the original images were not reconstructed. Do not call the app a visual facsimile or an exhaustive exam curriculum.
+
+## 2. Reading design
+
+Updated V1.1 direction: regular white light mode and true-black AMOLED dark mode, neutral surfaces, restrained blue accents and serif reading text. The user explicitly rejected the earlier green palette. An always-visible Light / AMOLED selector is in the global header. The home screen presents a clear sequence of parts, not a wall of text. Desktop has a persistent contents rail; mobile has a compact header and collapsible navigation. Page-based chunks preserve source references and keep sessions manageable.
+
+Language controls stay in the header. Switching FR/EN retains the page and relative reading position. Comparison aligns complete pages, since the translation is not sentence-for-sentence. On phones it stacks French and English. Include reader text size, theme and focus controls; respect reduced-motion preferences. Source diagrams should be rebuilt as accessible HTML/SVG when exactness matters, not generated as decorative factual images.
+
+## 3. Persistence and free hosting
+
+Store the published content as versioned files in Git. Host generated static files on GitHub Pages using a public repository and its standard domain. Ship all content with the app; no content API, paid translation service or backend is needed.
+
+Keep progress/bookmarks/preferences in localStorage with defensive parsing. Export/import provides an account-free way to move or back up progress; importing merges read pages and bookmarks. Browser storage is device/browser-specific and can be cleared. Do not promise synchronization. Cache the entire small static site with a service worker. Installation and first offline preparation require HTTPS or localhost; the portable single-file reader works from disk independently.
+
+## 4. V1 release gates
+
+Automated gates passed: content alignment and coverage, notes coverage, state validation, search, route rendering, persistence actions, static paths and mocked cache behavior. Remaining manual gates: responsive layout and scrolling, keyboard and focus accessibility, long tables, phone install flow, offline reload, and update behavior on actual HTTPS deployment.
+
+The current deliverable includes the source, a deployment workflow, prebuilt static files and a standalone downloadable reader. Publication is outstanding: a GitHub repository destination and working authentication are needed. No paid hosting is required.
+
+## 5. V1.1 — strengthen learning and content confidence
+
+- Audit the original PDF against the paired Markdown and capture any missing meaningful visuals.
+- Use stable source references and an edition/content manifest; review the known factual corrections and date-sensitive claims.
+- Add useful infographics only where they clarify relationships: institutions and elections, constitutional principles, historical chronology. Keep full source prose available beside each diagram.
+- Improve navigation with within-page headings, a glossary, and per-section language reveal if learner testing shows page-level comparison is too long.
+- Conduct accessibility and phone usability testing with several learners before adding features.
+
+## 6. V2 — personal notes
+
+Use IndexedDB for richer local notes, keyed by edition + page ID + stable section ID. Add export/import, migration tests and deletion controls before synchronization. The reading content remains separate from personal data. Only consider an optional free-tier backend when cross-device synchronization is a demonstrated need, and explain its quotas and privacy implications at that point.
+
+## 7. V3 — flashcards and practice
+
+Introduce manually reviewed, source-linked cards with French prompts and optional English help. Store review scheduling locally. Keep source notes and disputed claims out of unqualified quiz answers. Add spaced repetition, tags and progress only after a small verified deck works well. A quiz must distinguish published official questions from author-written practice questions; never imply guaranteed exam coverage.
+
+## Research and rationale
+
+- [GitHub Pages overview](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages): static HTML/CSS/JS hosting and public repository availability on GitHub Free.
+- [Publishing with GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site): use the workflow as the publishing source.
+- [web.dev service workers](https://web.dev/learn/pwa/service-workers): offline interception/caching; installation alone is not an offline guarantee.
+- [web.dev assets and data](https://web.dev/learn/pwa/assets-and-data): distinguish cached app/content resources from user data storage.
+- [Astro Starlight internationalization](https://starlight.astro.build/guides/i18n/): associate equivalent pages across locales and make translation/fallback behavior explicit. Its documentation-site model is useful inspiration, but a custom page-comparison reader is simpler here without framework dependencies.
+- [Ministry source](https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html): source edition and official reference.
+
+Research checked 17 November 2026. Decisions are specific to this free, reading-first V1; they do not require committing to a backend or a framework for later versions.
+
+## V1.1 preference and device update
+
+The primary target is the Galaxy Z Fold8 cover display, with occasional unfolded use. Prioritize narrow-screen reading and make bilingual comparison use the wider screen when at least 720 CSS px are available. Preserve the reading page and preferences across reflow; do not hard-code an unverified device resolution. Test common phone widths (320, 360, 375, 390, 412, 430) and larger widths (720, 768, 820, 1024) in actual browsers when available. The current changes implement the responsive policies and pass automated content/logic/contrast checks; real-device layout verification is still pending.

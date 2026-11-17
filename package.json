@@ -1,0 +1,11 @@
+{
+  "name": "citoyen-study",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "test": "node --test tests/*.test.mjs",
+    "start": "python3 -m http.server 4173 --directory dist"
+  },
+  "type": "module"
+}

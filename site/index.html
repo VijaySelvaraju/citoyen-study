@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#ffffff"><meta name="description" content="Étudiez le Livret du citoyen en français et en anglais. Un guide indépendant, bilingue et accessible hors ligne.">
+<title>Citoyen — Un pas à la fois</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./icon-192.png"><link rel="stylesheet" href="./styles.css">
+<script src="./app.js" type="module"></script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu / Skip to content</a>
+<div id="app"><p class="loading">Ouverture du livret… · Opening your guide…</p></div>
+<dialog id="search-dialog" aria-labelledby="search-label"><div class="search-head"><label id="search-label" for="search-input">Rechercher / Search</label><button class="icon-button" id="close-search" aria-label="Fermer / Close">✕</button></div><input id="search-input" type="search" autocomplete="off" placeholder="Laïcité, 1789, droits…"><div id="results" aria-live="polite"></div></dialog>
+<dialog id="about-dialog" aria-labelledby="about-title"><div class="search-head"><h2 id="about-title">À propos / About</h2><button class="icon-button" id="close-about" aria-label="Fermer / Close">✕</button></div><div id="about-body"></div></dialog>
+<div id="toast" role="status"></div>
+<noscript><p>This interactive reader needs JavaScript. You can still read the complete <a href="./source-fr.md">French extract</a> or <a href="./source-en.md">English translation</a>.</p></noscript>
+</body></html>
