@@ -116,9 +116,10 @@ def icon(size):
     return b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',size,size,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(b''.join(rows)))+chunk(b'IEND',b'')
 for size in (192,512):(OUT/f'icon-{size}.png').write_bytes(icon(size))
 (OUT/'.nojekyll').touch()
-# Cache version follows content AND UI bytes, preventing stale releases.
+# Cache version follows the offline assets and service worker template.
 files=sorted(p.relative_to(OUT).as_posix() for p in OUT.rglob('*') if p.is_file() and p.name not in ('sw.js',))
-version=hashlib.sha256(b''.join((OUT/f).read_bytes() for f in files)).hexdigest()[:12]
-sw=(ROOT/'scripts/sw.template.js').read_text().replace('__VERSION__',version).replace('__ASSETS__',json.dumps(['./']+['./'+f for f in files]))
+template=(ROOT/'scripts/sw.template.js').read_text()
+version=hashlib.sha256(template.encode() + b''.join((OUT/f).read_bytes() for f in files)).hexdigest()[:12]
+sw=template.replace('__VERSION__',version).replace('__ASSETS__',json.dumps(['./']+['./'+f for f in files]))
 (OUT/'sw.js').write_text(sw)
 print(f'Built {len(data["pages"])} paired pages, {len(notes)} editorial notes, {len(chapters)} groups. Cache version {version}.')

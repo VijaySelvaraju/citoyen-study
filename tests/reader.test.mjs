@@ -42,9 +42,9 @@ test('Search renders bilingual results and safely handles HTML-like queries',asy
 });
 test('Service worker precaches all files and serves cached requests without the network',async()=>{
  const handlers={},cache=new Map();let networkCalls=0;
- const storage={open:async()=>({addAll:async urls=>urls.forEach(u=>cache.set(new URL(u,'https://example.com/citoyen/').href,{cached:true,url:u}))}),keys:async()=>['other-app','citoyen-old','citoyen-test'],delete:async key=>{assert.ok(key.startsWith('citoyen-'));return true;},match:async req=>cache.get(typeof req==='object'?req.url:req)};
+ const storage={open:async()=>({addAll:async requests=>requests.forEach(request=>{assert.equal(request.cache,'reload');cache.set(request.url,{cached:true,url:request.url});})}),keys:async()=>['other-app','citoyen-old','citoyen-test'],delete:async key=>{assert.ok(key.startsWith('citoyen-'));return true;},match:async req=>cache.get(typeof req==='object'?req.url:req)};
  const self={location:{origin:'https://example.com'},registration:{scope:'https://example.com/citoyen/'},clients:{claim:async()=>{}},addEventListener:(type,fn)=>handlers[type]=fn,skipWaiting(){}};
- vm.runInNewContext(readFileSync(new URL('../dist/sw.js',import.meta.url),'utf8'),{self,caches:storage,URL,fetch:async()=>{networkCalls++;throw Error('offline')}});
+ vm.runInNewContext(readFileSync(new URL('../dist/sw.js',import.meta.url),'utf8'),{self,caches:storage,URL,Request,fetch:async()=>{networkCalls++;throw Error('offline')}});
  let pending;handlers.install({waitUntil:p=>pending=p});await pending;
  assert.ok(cache.has('https://example.com/citoyen/content.json'));
  let response;handlers.fetch({request:{url:'https://example.com/citoyen/content.json',method:'GET'},respondWith:r=>response=r});assert.equal((await response).cached,true);assert.equal(networkCalls,0);
