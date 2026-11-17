@@ -16,7 +16,10 @@ for lang in ('fr','en'):
  app=app.replace(f'./source-{lang}.md',url)
  s=s.replace(f'./source-{lang}.md',url)
 app=app.replace('./icon.svg','data:image/svg+xml;base64,'+base64.b64encode((dist/'icon.svg').read_bytes()).decode())
-content=(dist/'content.json').read_text().replace('</','<\\/')
+payload=json.loads((dist/'content.json').read_text())
+for f in payload.get('visuals',[]):
+ f['src']='data:image/jpeg;base64,'+base64.b64encode((dist/f['src']).read_bytes()).decode()
+content=json.dumps(payload,ensure_ascii=False).replace('</','<\\/')
 s=s.replace('</body>',f'<script>window.CITOYEN_DATA={content};</script><script type="module">{core}\n{app}</script></body>')
 (root/'Citoyen.html').write_text(s)
 print('Created standalone Citoyen.html')

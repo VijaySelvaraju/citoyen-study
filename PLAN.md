@@ -12,7 +12,7 @@ Keep every original page in order, grouped under the five original parts and app
 
 Implemented: all 83 page pairs, original order and page links, 14 attached editorial notes, readable tables and a complete notes page. Source content has exact automated coverage checks. The app's public content omits private file metadata.
 
-Remaining content work: compare the supplied PDF with the current official download; inspect and recreate the page 21 administrative map and other instructionally necessary images with appropriate attribution and alternative text. The user has not supplied an attached PDF in this turn, and the original images were not reconstructed. Do not call the app a visual facsimile or an exhaustive exam curriculum.
+V1.2 visually inspected the 83-page official download and restored 31 selected crops on 23 pages, including the administrative/EU maps, elections diagram, timelines, school diagram and selected cultural/geographical photos. Captions and alternative text are bilingual; French labels and credits are preserved. Remaining content work: full text/edition audit, remaining historical portraits and photography, and richer accessible text equivalents for dense maps. Do not call the app a visual facsimile or an exhaustive exam curriculum.
 
 ## 2. Reading design
 
@@ -62,3 +62,18 @@ Research checked 17 November 2026. Decisions are specific to this free, reading-
 ## V1.1 preference and device update
 
 The primary target is the Galaxy Z Fold8 cover display, with occasional unfolded use. Prioritize narrow-screen reading and make bilingual comparison use the wider screen when at least 720 CSS px are available. Preserve the reading page and preferences across reflow; do not hard-code an unverified device resolution. Test common phone widths (320, 360, 375, 390, 412, 430) and larger widths (720, 768, 820, 1024) in actual browsers when available. The current changes implement the responsive policies and pass automated content/logic/contrast checks; real-device layout verification is still pending.
+
+## Next improvements, in order
+
+1. **Learning confidence:** complete the PDF/text audit and create a concise change log for date-sensitive facts and editorial corrections. The source text and interpretations must remain distinct.
+2. **Quick help while reading:** tap a key French term to reveal a short English meaning; start with a small reviewed glossary, preserving the full reading text.
+3. **Short sessions:** offer “next unread page” and a 5–10 minute study suggestion without streak pressure or notifications.
+4. **Visual recall:** add a browseable map/timeline gallery and sentence-level explanations of each diagram, linked back to the lessons.
+5. **Accessibility and phone checks:** physical Fold cover/unfolded transitions, text scaling, keyboard/screen-reader behavior, installation, offline reload and update UX.
+6. **Personal notes and flashcards:** retain the existing later-phase boundary. Implement notes/export first, then reviewed source-linked cards; avoid turning the reading guide into a crowded dashboard.
+
+V1.2 homepage rationale: a long French-only PDF is difficult to study on a phone, vocabulary interruptions break concentration, and short study sessions need a reliable return point. Keep this explanation below the primary reading/resume action, in both languages.
+
+### Theme refinement during V1.2
+
+The user asked whether regular dark mode could look better across different screens. Keep three explicit choices: Light, Dark, AMOLED. Recommend regular charcoal Dark for visual separation between reading surfaces, navigation and cards; retain true black as an optional preference. Preserve existing AMOLED selections and avoid inferring display technology from device names. A compact appearance selector on phones preserves room for language switching.

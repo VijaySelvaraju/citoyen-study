@@ -11,6 +11,7 @@
 <div id="app"><p class="loading">Ouverture du livret… · Opening your guide…</p></div>
 <dialog id="search-dialog" aria-labelledby="search-label"><div class="search-head"><label id="search-label" for="search-input">Rechercher / Search</label><button class="icon-button" id="close-search" aria-label="Fermer / Close">✕</button></div><input id="search-input" type="search" autocomplete="off" placeholder="Laïcité, 1789, droits…"><div id="results" aria-live="polite"></div></dialog>
 <dialog id="about-dialog" aria-labelledby="about-title"><div class="search-head"><h2 id="about-title">À propos / About</h2><button class="icon-button" id="close-about" aria-label="Fermer / Close">✕</button></div><div id="about-body"></div></dialog>
+<dialog id="figure-dialog" aria-labelledby="figure-title" aria-describedby="figure-caption"><div class="figure-toolbar"><h2 id="figure-title"></h2><button class="soft-button" id="figure-zoom" aria-pressed="false">Taille réelle / zoom</button><button class="soft-button" id="close-figure">Fermer ✕</button></div><div id="figure-pan" tabindex="0" aria-label="Image agrandie / Enlarged image"><img id="figure-image" alt=""></div><p id="figure-caption"></p><a id="figure-source" target="_blank" rel="noopener"></a></dialog>
 <div id="toast" role="status"></div>
 <noscript><p>This interactive reader needs JavaScript. You can still read the complete <a href="./source-fr.md">French extract</a> or <a href="./source-en.md">English translation</a>.</p></noscript>
 </body></html>

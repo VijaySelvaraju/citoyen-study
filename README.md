@@ -1,4 +1,4 @@
-# Citoyen — V1.1
+# Citoyen — V1.2
 
 A bilingual, mobile-friendly study reader for the **May 2026 Livret du citoyen**. French and English extracts are paired by original PDF page, preserving all 83 page sections, the five parts, appendices and 14 editorial notes. This is an independent, unofficial guide.
 
@@ -14,7 +14,7 @@ For a portable copy, run `npm run build` followed by `python3 scripts/standalone
 - Five-part navigation, original PDF page links, appendices, previous/next navigation and page jump.
 - Search across both languages, ignoring accents and case. Keyboard shortcut: Ctrl/Cmd + K.
 - Explicit “mark as read”, bookmarks, last page and relative reading position stored locally.
-- Adjustable text, globally accessible white/AMOLED theme controls, distraction-free focus mode and reduced-motion support.
+- Adjustable text, globally accessible Light/Dark/AMOLED theme controls, distraction-free focus mode and reduced-motion support.
 - Progress/bookmark JSON export and merge import, without an account.
 - Install manifest and service worker caching the complete site. A visible status confirms when offline preparation has finished. A new release offers a reload action.
 - Source limitations and dated editorial notes are visible and remain separate from the extracted booklet text.
@@ -59,11 +59,11 @@ git push -u origin main
 
 - `content/fr.md`: French working transcription supplied for this project.
 - `content/en.md`: supplied English study translation.
-- Both refer to an 83-page PDF with **May 2026** printed on the cover. The ministry download page describes its available PDF as the **July 2026** version. The app labels its own source by the supplied extract's printed edition; a fresh PDF identity comparison has not been performed in this build.
+- Both refer to an 83-page PDF with **May 2026** printed on the cover. The ministry download page describes its available PDF as the **July 2026** version. The app labels its own source by the supplied extract's printed edition; The official download was visually inspected for V1.2: it contains 83 pages and May 2026 on its cover, and the selected illustrations match their lesson pages. A byte-for-byte comparison with the uploaded copy and a fresh full-text OCR audit have not been performed.
 - [Official Ministry booklet page](https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html).
-- Text copyright attribution: Ministère de l’Intérieur, Direction générale des étrangers en France. This project does not imply government affiliation or approval. No government logo or third-party photographs are reproduced.
+- Text copyright attribution: Ministère de l’Intérieur, Direction générale des étrangers en France. This project does not imply government affiliation or approval. Selected source visuals retain original in-image credits; copyright remains with the original holders. Do not treat third-party images as covered by a blanket software license.
 - The app preserves the source's dated claims and displays supplied editorial corrections separately, dated 16 November 2026. They were not re-fact-checked for this build.
-- All 83 text sections are included. Photographs, decorative elements, some credits and small map labels are absent from the supplied extracts. Page 21 links to the official map. The complete original visual layout has **not** been recreated.
+- All 83 text sections are included. V1.2 restores 31 selected visuals from 23 lesson pages, including the administrative map and EU map. French labels remain within the original images; captions and alternative descriptions are bilingual. Remaining portraits, some photographs and decorative icons are not yet reproduced. The complete original visual layout has **not** been recreated.
 - The booklet itself says it is not exhaustive. This is not a guarantee of covering every possible exam or interview question.
 
 ## Architecture
@@ -112,3 +112,18 @@ The UI includes safe-area insets, unrestricted browser zoom, pointer-coarse link
 Validation: 14 passing automated tests (content, mocked DOM behavior, explicit persistent theme switching, contrast and responsive-policy presence). An additional isolated demo check covers theme, language, navigation and width selection. Those automated checks are complemented by the hosted-browser checks described above. Physical Fold 8, Safari/Chrome/Samsung Internet, text scaling and real folding transitions still need hands-on verification.
 
 References: [MDN viewport concepts](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts), [Samsung Fold8 product page](https://www.samsung.com/fr/smartphones/galaxy-z-fold8/). Browser layout should not be inferred from screen diagonal alone.
+
+## V1.2 — purpose and source visuals
+
+- A bilingual “Why this guide?” homepage section explains the PDF/mobile/language friction and the purpose of the free reader.
+- 31 selected source visuals on 23 pages, with captions, alternative text, source links, preserved image credits and an accessible native enlargement dialog. The image viewer offers fit-to-screen and actual-size modes with scroll/pan for dense map labels. Images are never inverted in AMOLED mode.
+- Recursive static-asset copying and cache generation includes all images in offline preparation. Lazy image rendering reduces page layout work; initial offline preparation still downloads the full image set (approximately 6 MB).
+- Portable HTML embeds the image bytes. The public repository holds the image assets, not the source PDF. The PDF fingerprint, source URL, page mapping and normalized crop coordinates are recorded in `content/visuals.json`.
+- `scripts/extract-visuals.swift` can regenerate the reviewed crops on macOS with PDFKit: `swift scripts/extract-visuals.swift /path/to/booklet.pdf content/visuals.json site`. Normal builds use the checked-in JPEGs and need no Swift/PDF dependencies.
+- An update notice is visible above the content on mobile as well as in the navigation.
+
+Validation adds asset-to-page/cache coverage, map-dialog zoom/close behavior and translated homepage purpose checks to the previous suite. Selected crops were visually reviewed and refined to retain captions and credits. The original transcription text remains unchanged.
+
+### Three appearance choices
+
+V1.2 also adds a regular charcoal Dark theme: page background `#14161c`, reading/card surfaces `#1e212a`, softened light text and muted blue accents. Light stays white; AMOLED stays pure black. All three text palettes meet 4.5:1 contrast against their page and reading surfaces. Existing saved dark preferences migrate to AMOLED without changing appearance or losing study progress. Phones use a compact labelled appearance select to avoid crowding the language controls; wider screens display all three buttons. The current suite has 19 passing tests, including migration and the phone selector.

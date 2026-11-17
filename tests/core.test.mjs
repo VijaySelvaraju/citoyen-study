@@ -46,3 +46,15 @@ test('Manifest and precache work at a GitHub Pages repository path',()=>{
  assert.ok(!sw.includes('__VERSION__'));
  const publicContent=JSON.stringify(data);assert.ok(!publicContent.includes('libfile_'));assert.ok(!publicContent.includes('chatgpt.com/library'));
 });
+
+test('Every source visual is bilingual, attached to a lesson and included in offline assets',()=>{
+ const manifest=JSON.parse(readFileSync(new URL('../content/visuals.json',import.meta.url)));
+ assert.equal(manifest.sourcePageCount,83);assert.equal(data.visuals.length,31);
+ const sw=readFileSync(new URL('../dist/sw.js',import.meta.url),'utf8');
+ for(const f of data.visuals){assert.ok(data.pages.some(p=>p.number===f.page));assert.ok(existsSync(new URL('../dist/'+f.src,import.meta.url)));assert.ok(sw.includes('./'+f.src));assert.ok(f.width>0&&f.height>0);for(const l of ['fr','en']){assert.ok(f.title[l]);assert.ok(f.alt[l]);}}
+ assert.equal(data.visuals.find(f=>f.id==='carte-france').page,21);
+ assert.equal(data.visuals.find(f=>f.id==='carte-europe').page,22);
+ assert.equal(data.visuals.find(f=>f.id==='garonne').page,51);
+});
+
+test('Existing AMOLED preferences migrate without losing bookmarks or changing appearance',()=>{const s=validState({dark:true,bookmarks:['p021']});assert.equal(s.theme,'amoled');assert.deepEqual(s.bookmarks,['p021']);assert.equal(validState({theme:'dark'}).theme,'dark');assert.equal(validState({theme:'light',dark:true}).dark,false);assert.equal(validState({theme:'invalid'}).theme,'light');});

@@ -1,0 +1,689 @@
+{
+  "figures" : [
+    {
+      "alt" : {
+        "en" : "Illustration of the Declaration of the Rights of Man and of the Citizen.",
+        "fr" : "Représentation de la Déclaration des droits de l’homme et du citoyen."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.080000000000000002,
+        0.29999999999999999,
+        0.34000000000000002,
+        0.40000000000000002
+      ],
+      "height" : 1245,
+      "id" : "declaration",
+      "page" : 6,
+      "src" : "visuals/declaration.jpg",
+      "title" : {
+        "en" : "The 1789 Declaration",
+        "fr" : "La Déclaration de 1789"
+      },
+      "width" : 748
+    },
+    {
+      "alt" : {
+        "en" : "Joined hands, used in the booklet to illustrate fraternity.",
+        "fr" : "Photographie de mains réunies, utilisée dans le livret pour illustrer la fraternité."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.069047619047619052,
+        0.37205387205387208,
+        0.4154761904761905,
+        0.18686868686868688
+      ],
+      "height" : 582,
+      "id" : "fraternite",
+      "page" : 7,
+      "src" : "visuals/fraternite.jpg",
+      "title" : {
+        "en" : "Fraternity",
+        "fr" : "La fraternité"
+      },
+      "width" : 915
+    },
+    {
+      "alt" : {
+        "en" : "Marianne, a symbol of the French Republic.",
+        "fr" : "Illustration de Marianne, symbole de la République française."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.72619047619047616,
+        0.45202020202020204,
+        0.21428571428571427,
+        0.18939393939393939
+      ],
+      "height" : 590,
+      "id" : "marianne",
+      "page" : 8,
+      "src" : "visuals/marianne.jpg",
+      "title" : {
+        "en" : "Marianne",
+        "fr" : "Marianne"
+      },
+      "width" : 473
+    },
+    {
+      "alt" : {
+        "en" : "The French flag on a public building.",
+        "fr" : "Drapeau français sur la façade d’un bâtiment public."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.069047619047619052,
+        0.63804713804713808,
+        0.40595238095238095,
+        0.2138047138047138
+      ],
+      "height" : 667,
+      "id" : "drapeau",
+      "page" : 8,
+      "src" : "visuals/drapeau.jpg",
+      "title" : {
+        "en" : "The tricolour flag",
+        "fr" : "Le drapeau tricolore"
+      },
+      "width" : 894
+    },
+    {
+      "alt" : {
+        "en" : "National anthem poster with lyrics and the French and European flags.",
+        "fr" : "Affiche de l’hymne national avec les paroles et les drapeaux français et européen."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.10000000000000001,
+        0.080000000000000002,
+        0.81999999999999995,
+        0.81999999999999995
+      ],
+      "height" : 1414,
+      "id" : "marseillaise",
+      "page" : 9,
+      "src" : "visuals/marseillaise.jpg",
+      "title" : {
+        "en" : "La Marseillaise",
+        "fr" : "La Marseillaise"
+      },
+      "width" : 1000
+    },
+    {
+      "alt" : {
+        "en" : "Diagram of elections and relationships between citizens, local authorities, Parliament, President and Government. The lesson text provides a readable equivalent.",
+        "fr" : "Schéma des élections et des relations entre citoyens, collectivités, Parlement, président et Gouvernement. Le texte de cette page fournit une version lisible."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.044999999999999998,
+        0.10000000000000001,
+        0.91000000000000003,
+        0.80000000000000004
+      ],
+      "height" : 2237,
+      "id" : "elections",
+      "page" : 18,
+      "src" : "visuals/elections.jpg",
+      "title" : {
+        "en" : "Who elects whom?",
+        "fr" : "Qui élit qui ?"
+      },
+      "width" : 1800
+    },
+    {
+      "alt" : {
+        "en" : "A town hall, illustrating the role of communes.",
+        "fr" : "Photographie d’une mairie accompagnant le rôle des communes."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.079761904761904756,
+        0.30892255892255893,
+        0.29285714285714287,
+        0.20370370370370369
+      ],
+      "height" : 634,
+      "id" : "mairie",
+      "page" : 19,
+      "src" : "visuals/mairie.jpg",
+      "title" : {
+        "en" : "The town hall",
+        "fr" : "La mairie"
+      },
+      "width" : 645
+    },
+    {
+      "alt" : {
+        "en" : "Chart of the five overseas departments and regions and seven other overseas territories listed in the booklet.",
+        "fr" : "Tableau des cinq départements et régions d’outre-mer et des sept collectivités ou territoires à statut particulier cités dans le livret."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.089999999999999997,
+        0.13,
+        0.84999999999999998,
+        0.38
+      ],
+      "height" : 632,
+      "id" : "outre-mer",
+      "page" : 20,
+      "src" : "visuals/outre-mer.jpg",
+      "title" : {
+        "en" : "Overseas territories",
+        "fr" : "Les territoires d’outre-mer"
+      },
+      "width" : 1000
+    },
+    {
+      "alt" : {
+        "en" : "Map of French regions and departments, with names, numbers and overseas insets. Enlarge to read the small French labels.",
+        "fr" : "Carte des régions et départements, avec noms, numéros et encadrés des territoires d’outre-mer. Agrandissez pour lire les petits libellés."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.044999999999999998,
+        0.105,
+        0.91000000000000003,
+        0.82999999999999996
+      ],
+      "height" : 2322,
+      "id" : "carte-france",
+      "page" : 21,
+      "src" : "visuals/carte-france.jpg",
+      "title" : {
+        "en" : "Administrative map of France",
+        "fr" : "La carte administrative de la France"
+      },
+      "width" : 1800
+    },
+    {
+      "alt" : {
+        "en" : "Map of Europe with a legend showing EU accession dates. The lesson’s editorial notes still apply.",
+        "fr" : "Carte de l’Europe et légende des dates d’adhésion à l’Union européenne. Les notes éditoriales de la leçon restent applicables."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.044999999999999998,
+        0.435,
+        0.92000000000000004,
+        0.45500000000000002
+      ],
+      "height" : 1259,
+      "id" : "carte-europe",
+      "page" : 22,
+      "src" : "visuals/carte-europe.jpg",
+      "title" : {
+        "en" : "European integration",
+        "fr" : "La construction européenne"
+      },
+      "width" : 1800
+    },
+    {
+      "alt" : {
+        "en" : "Timeline of European integration from 1951 to 2002. Dates and institutions are explained in the lesson text.",
+        "fr" : "Frise des étapes de la construction européenne, de 1951 à 2002. Les dates et institutions sont expliquées dans le texte de la leçon."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.025000000000000001,
+        0.45000000000000001,
+        0.93999999999999995,
+        0.44
+      ],
+      "height" : 1192,
+      "id" : "frise-europe",
+      "page" : 23,
+      "src" : "visuals/frise-europe.jpg",
+      "title" : {
+        "en" : "Milestones in European integration",
+        "fr" : "Les étapes de la construction européenne"
+      },
+      "width" : 1800
+    },
+    {
+      "alt" : {
+        "en" : "Reproduction of Eugène Delacroix’s painting and its caption.",
+        "fr" : "Reproduction du tableau d’Eugène Delacroix et sa légende."
+      },
+      "credit" : "Eugène Delacroix, La Liberté guidant le peuple (1830).",
+      "crop" : [
+        0.52738095238095239,
+        0.17171717171717171,
+        0.41428571428571431,
+        0.23653198653198654
+      ],
+      "height" : 737,
+      "id" : "liberte",
+      "page" : 26,
+      "src" : "visuals/liberte.jpg",
+      "title" : {
+        "en" : "Liberty Leading the People",
+        "fr" : "La Liberté guidant le peuple"
+      },
+      "width" : 912
+    },
+    {
+      "alt" : {
+        "en" : "Timeline of political regimes from the Ancien Régime to the Fifth Republic. Names and dates also appear in the lesson text.",
+        "fr" : "Frise chronologique des régimes politiques, de l’Ancien Régime à la Cinquième République. Les noms et dates sont également présents dans le texte."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.02,
+        0.29999999999999999,
+        0.96499999999999997,
+        0.62
+      ],
+      "height" : 1636,
+      "id" : "frise-histoire",
+      "page" : 38,
+      "src" : "visuals/frise-histoire.jpg",
+      "title" : {
+        "en" : "French political regimes",
+        "fr" : "Les régimes politiques français"
+      },
+      "width" : 1800
+    },
+    {
+      "alt" : {
+        "en" : "Timeline of Fifth Republic presidents, with portraits and terms as shown in the source edition.",
+        "fr" : "Frise des présidents de la Cinquième République, avec portraits et dates de mandat figurant dans l’édition source."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.025000000000000001,
+        0.23999999999999999,
+        0.96499999999999997,
+        0.53500000000000003
+      ],
+      "height" : 1412,
+      "id" : "presidents",
+      "page" : 47,
+      "src" : "visuals/presidents.jpg",
+      "title" : {
+        "en" : "Presidents of the Fifth Republic",
+        "fr" : "Les présidents de la Ve République"
+      },
+      "width" : 1800
+    },
+    {
+      "alt" : {
+        "en" : "Photograph of Mont Blanc and the booklet caption.",
+        "fr" : "Photographie du massif du Mont-Blanc et légende du livret."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.066666666666666666,
+        0.18518518518518517,
+        0.35952380952380952,
+        0.18518518518518517
+      ],
+      "height" : 577,
+      "id" : "mont-blanc",
+      "page" : 51,
+      "src" : "visuals/mont-blanc.jpg",
+      "title" : {
+        "en" : "Mont Blanc",
+        "fr" : "Le Mont-Blanc"
+      },
+      "width" : 792
+    },
+    {
+      "alt" : {
+        "en" : "The Garonne flowing through Toulouse, with its original caption and credit.",
+        "fr" : "Vue de la Garonne traversant Toulouse, avec sa légende et son crédit."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.53452380952380951,
+        0.4553872053872054,
+        0.45714285714285713,
+        0.22558922558922559
+      ],
+      "height" : 698,
+      "id" : "garonne",
+      "page" : 51,
+      "src" : "visuals/garonne.jpg",
+      "title" : {
+        "en" : "The Garonne in Toulouse",
+        "fr" : "La Garonne à Toulouse"
+      },
+      "width" : 1000
+    },
+    {
+      "alt" : {
+        "en" : "Photograph of Piton de la Fournaise on Réunion.",
+        "fr" : "Photographie du piton de la Fournaise sur l’île de La Réunion."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.083333333333333329,
+        0.74831649831649827,
+        0.38452380952380955,
+        0.20202020202020202
+      ],
+      "height" : 629,
+      "id" : "volcan",
+      "page" : 51,
+      "src" : "visuals/volcan.jpg",
+      "title" : {
+        "en" : "Piton de la Fournaise",
+        "fr" : "Le piton de la Fournaise"
+      },
+      "width" : 847
+    },
+    {
+      "alt" : {
+        "en" : "Forest photograph with its original caption.",
+        "fr" : "Vue d’une forêt accompagnée de la légende du livret."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.59880952380952379,
+        0.14309764309764308,
+        0.39166666666666666,
+        0.21632996632996632
+      ],
+      "height" : 674,
+      "id" : "foret",
+      "page" : 52,
+      "src" : "visuals/foret.jpg",
+      "title" : {
+        "en" : "The Guiana Amazonian Park",
+        "fr" : "Le parc amazonien de Guyane"
+      },
+      "width" : 863
+    },
+    {
+      "alt" : {
+        "en" : "Lascaux cave paintings reproduced in the booklet, with their caption.",
+        "fr" : "Peintures rupestres de Lascaux, reproduites dans le livret avec leur légende."
+      },
+      "credit" : "Centre national de la préhistoire, 2006 © MCC-CNP.",
+      "crop" : [
+        0.065476190476190479,
+        0.38804713804713803,
+        0.47142857142857142,
+        0.24579124579124578
+      ],
+      "height" : 736,
+      "id" : "lascaux",
+      "page" : 52,
+      "src" : "visuals/lascaux.jpg",
+      "title" : {
+        "en" : "Prehistoric caves",
+        "fr" : "Les grottes préhistoriques"
+      },
+      "width" : 1000
+    },
+    {
+      "alt" : {
+        "en" : "The Louvre pyramid and museum buildings, with the caption.",
+        "fr" : "La pyramide du Louvre et les bâtiments du musée, avec la légende."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.069047619047619052,
+        0.27525252525252525,
+        0.40119047619047621,
+        0.23063973063973064
+      ],
+      "height" : 718,
+      "id" : "louvre",
+      "page" : 54,
+      "src" : "visuals/louvre.jpg",
+      "title" : {
+        "en" : "The Louvre Museum",
+        "fr" : "Le musée du Louvre"
+      },
+      "width" : 884
+    },
+    {
+      "alt" : {
+        "en" : "Façade of the Musée d’Orsay, with the booklet caption.",
+        "fr" : "Façade du musée d’Orsay, avec la légende du livret."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.54761904761904767,
+        0.5067340067340067,
+        0.39285714285714285,
+        0.27104377104377103
+      ],
+      "height" : 844,
+      "id" : "orsay",
+      "page" : 54,
+      "src" : "visuals/orsay.jpg",
+      "title" : {
+        "en" : "The Musée d’Orsay",
+        "fr" : "Le musée d’Orsay"
+      },
+      "width" : 866
+    },
+    {
+      "alt" : {
+        "en" : "Photograph of the Eiffel Tower and its caption.",
+        "fr" : "Photographie de la tour Eiffel et légende du livret."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.6785714285714286,
+        0.096801346801346805,
+        0.26428571428571429,
+        0.31986531986531985
+      ],
+      "height" : 996,
+      "id" : "tour-eiffel",
+      "page" : 56,
+      "src" : "visuals/tour-eiffel.jpg",
+      "title" : {
+        "en" : "The Eiffel Tower",
+        "fr" : "La tour Eiffel"
+      },
+      "width" : 583
+    },
+    {
+      "alt" : {
+        "en" : "Photograph of Mont-Saint-Michel abbey and caption.",
+        "fr" : "Photographie de l’abbaye du Mont-Saint-Michel et légende."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.066666666666666666,
+        0.44528619528619529,
+        0.40714285714285714,
+        0.20202020202020202
+      ],
+      "height" : 629,
+      "id" : "mont-saint-michel",
+      "page" : 56,
+      "src" : "visuals/mont-saint-michel.jpg",
+      "title" : {
+        "en" : "Mont-Saint-Michel",
+        "fr" : "Le Mont-Saint-Michel"
+      },
+      "width" : 897
+    },
+    {
+      "alt" : {
+        "en" : "Photograph of the Palais des Papes in Avignon and caption.",
+        "fr" : "Photographie du Palais des Papes à Avignon et légende."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.54285714285714282,
+        0.64814814814814814,
+        0.39285714285714285,
+        0.20454545454545456
+      ],
+      "height" : 637,
+      "id" : "palais-papes",
+      "page" : 56,
+      "src" : "visuals/palais-papes.jpg",
+      "title" : {
+        "en" : "The Palais des Papes",
+        "fr" : "Le Palais des Papes"
+      },
+      "width" : 865
+    },
+    {
+      "alt" : {
+        "en" : "Photograph of the 14 July parade, with the booklet caption.",
+        "fr" : "Photographie du défilé du 14 juillet, avec la légende du livret."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.5,
+        0.57239057239057234,
+        0.43214285714285716,
+        0.20875420875420875
+      ],
+      "height" : 651,
+      "id" : "14-juillet",
+      "page" : 57,
+      "src" : "visuals/14-juillet.jpg",
+      "title" : {
+        "en" : "14 July",
+        "fr" : "Le 14 juillet"
+      },
+      "width" : 951
+    },
+    {
+      "alt" : {
+        "en" : "Photograph of the Paris 2024 Olympic and Paralympic Games with the Eiffel Tower.",
+        "fr" : "Photographie des Jeux olympiques et paralympiques de Paris 2024 avec la tour Eiffel."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.29761904761904762,
+        0.65740740740740744,
+        0.40357142857142858,
+        0.20622895622895623
+      ],
+      "height" : 642,
+      "id" : "jeux-paris",
+      "page" : 59,
+      "src" : "visuals/jeux-paris.jpg",
+      "title" : {
+        "en" : "The Paris 2024 Games",
+        "fr" : "Les Jeux de Paris 2024"
+      },
+      "width" : 889
+    },
+    {
+      "alt" : {
+        "en" : "Traditional dish photograph and its original caption.",
+        "fr" : "Photographie d’un plat traditionnel et sa légende dans le livret."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.65119047619047621,
+        0.59006734006734007,
+        0.28333333333333333,
+        0.12710437710437711
+      ],
+      "height" : 397,
+      "id" : "gastronomie",
+      "page" : 60,
+      "src" : "visuals/gastronomie.jpg",
+      "title" : {
+        "en" : "A traditional dish",
+        "fr" : "Un plat du patrimoine culinaire"
+      },
+      "width" : 624
+    },
+    {
+      "alt" : {
+        "en" : "Cheese photograph and its original caption.",
+        "fr" : "Photographie d’un fromage et sa légende dans le livret."
+      },
+      "credit" : "Pascal Xicluna / agriculture.gouv.fr.",
+      "crop" : [
+        0.053571428571428568,
+        0.73063973063973064,
+        0.3261904761904762,
+        0.15067340067340068
+      ],
+      "height" : 469,
+      "id" : "fromage",
+      "page" : 60,
+      "src" : "visuals/fromage.jpg",
+      "title" : {
+        "en" : "Cheeses",
+        "fr" : "Les fromages"
+      },
+      "width" : 719
+    },
+    {
+      "alt" : {
+        "en" : "Original panel showing emergency and assistance numbers. This is a dated study illustration; also read the lesson text and editorial notes.",
+        "fr" : "Encadré original présentant les numéros d’urgence et d’aide. Ce visuel est un support d’étude daté ; consultez aussi le texte et les notes de la leçon."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.17857142857142858,
+        0.21464646464646464,
+        0.66547619047619044,
+        0.3005050505050505
+      ],
+      "height" : 936,
+      "id" : "numeros",
+      "page" : 69,
+      "src" : "visuals/numeros.jpg",
+      "title" : {
+        "en" : "Emergency and assistance numbers",
+        "fr" : "Les numéros d’urgence et d’aide"
+      },
+      "width" : 1465
+    },
+    {
+      "alt" : {
+        "en" : "Vie-publique infographic about the three branches of the civil service, with its original credit.",
+        "fr" : "Infographie Vie-publique sur les trois fonctions publiques, conservant le crédit présent dans l’image."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.435,
+        0.42999999999999999,
+        0.56499999999999995,
+        0.48999999999999999
+      ],
+      "height" : 1526,
+      "id" : "fonctionnaire",
+      "page" : 72,
+      "src" : "visuals/fonctionnaire.jpg",
+      "title" : {
+        "en" : "What is a civil servant?",
+        "fr" : "Qu’est-ce qu’un fonctionnaire ?"
+      },
+      "width" : 1243
+    },
+    {
+      "alt" : {
+        "en" : "Diagram showing nursery school, primary school, collège and lycée.",
+        "fr" : "Schéma présentant l’école maternelle, l’école élémentaire, le collège et le lycée."
+      },
+      "credit" : "Ministère de l’Intérieur / DGEF. Crédits originaux conservés dans l’image.",
+      "crop" : [
+        0.040476190476190478,
+        0.55555555555555558,
+        0.65833333333333333,
+        0.33417508417508418
+      ],
+      "height" : 1040,
+      "id" : "ecole",
+      "page" : 75,
+      "src" : "visuals/ecole.jpg",
+      "title" : {
+        "en" : "Stages of schooling",
+        "fr" : "Les étapes de la scolarité"
+      },
+      "width" : 1449
+    }
+  ],
+  "sourcePageCount" : 83,
+  "sourceSha256" : "064327e3b784f7731d718a830dcc838ca7d9290fe3485620d79dcbae368a0a6e",
+  "sourceUrl" : "https://www.immigration.interieur.gouv.fr/sites/dgef/files/medias/documents/2026-07/LIVRET%20DU%20CITOYEN%202026_0.pdf"
+}

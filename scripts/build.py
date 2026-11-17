@@ -88,9 +88,16 @@ for lang in ('fr','en'):
         if lang=='en' and len(cells)>1:note['sources']=markdown(cells[1])
 data['notes']=list(notes.values())
 assert len(notes)==14
+visuals=json.loads((ROOT/'content/visuals.json').read_text())
+assert visuals['sourcePageCount']==83
+for f in visuals['figures']:
+    assert 1<=f['page']<=83 and (ROOT/'site'/f['src']).is_file(), f['id']
+    assert all(f[k].get(l) for k in ('title','alt') for l in ('fr','en'))
+data['visuals']=visuals['figures']
 (OUT/'content.json').write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')))
 for p in (ROOT/'site').iterdir():
     if p.is_file():shutil.copy2(p,OUT/p.name)
+    elif p.is_dir():shutil.copytree(p,OUT/p.name,dirs_exist_ok=True)
 # Real PNG install icons, generated with Python's standard library.
 def icon(size):
     rows=[]
@@ -110,7 +117,7 @@ def icon(size):
 for size in (192,512):(OUT/f'icon-{size}.png').write_bytes(icon(size))
 (OUT/'.nojekyll').touch()
 # Cache version follows content AND UI bytes, preventing stale releases.
-files=sorted(p.name for p in OUT.iterdir() if p.is_file() and p.name not in ('sw.js',))
+files=sorted(p.relative_to(OUT).as_posix() for p in OUT.rglob('*') if p.is_file() and p.name not in ('sw.js',))
 version=hashlib.sha256(b''.join((OUT/f).read_bytes() for f in files)).hexdigest()[:12]
 sw=(ROOT/'scripts/sw.template.js').read_text().replace('__VERSION__',version).replace('__ASSETS__',json.dumps(['./']+['./'+f for f in files]))
 (OUT/'sw.js').write_text(sw)

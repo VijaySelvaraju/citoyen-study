@@ -8,7 +8,7 @@ const app=readFileSync(new URL('../site/app.js',import.meta.url),'utf8').split('
 const script=new vm.Script('(async()=>{'+core+'\nconst esc=escapeHTML;\n'+app+'\nreturn {render,switchLanguage,openSearch,about,reader,currentProgress,getState:()=>state};})()');
 function fixture(){
  const nodes=new Map(),listeners={document:{},window:{}};
- function node(selector){if(!nodes.has(selector))nodes.set(selector,{innerHTML:'',textContent:'',value:'',hidden:false,style:{setProperty(){}},classList:{add(){},remove(){},toggle(){}},addEventListener(type,fn){(this.events??={})[type]=fn;},setAttribute(){},insertAdjacentHTML(pos,html){this.innerHTML=html+this.innerHTML;},showModal(){this.open=true;},close(){this.open=false;},focus(){},getBoundingClientRect(){return {left:0,right:100,top:0,bottom:100}}});return nodes.get(selector);}
+ function node(selector){if(!nodes.has(selector))nodes.set(selector,{innerHTML:'',textContent:'',value:'',hidden:false,style:{setProperty(){}},classList:{add(){},remove(){},toggle(){}},addEventListener(type,fn){(this.events??={})[type]=fn;},setAttribute(k,v){(this.attrs??={})[k]=v;},getAttribute(k){return this.attrs?.[k]??null;},insertAdjacentHTML(pos,html){this.innerHTML=html+this.innerHTML;},showModal(){this.open=true;},close(){this.open=false;},focus(){},getBoundingClientRect(){return {left:0,right:100,top:0,bottom:100}}});return nodes.get(selector);}
  const storage=new Map();const location={hash:'#home',protocol:'file:',reload(){}};
  const document={querySelector:node,querySelectorAll:()=>[node('#search-dialog'),node('#about-dialog')],documentElement:{lang:'',style:{setProperty(){}},scrollHeight:4000},body:node('body'),addEventListener(type,fn){listeners.document[type]=fn;},title:'',activeElement:null};
  const window={CITOYEN_DATA:content,scrollTo(){},addEventListener(type,fn){listeners.window[type]=fn;}};
@@ -50,19 +50,35 @@ test('Service worker precaches all files and serves cached requests without the 
  let response;handlers.fetch({request:{url:'https://example.com/citoyen/content.json',method:'GET'},respondWith:r=>response=r});assert.equal((await response).cached,true);assert.equal(networkCalls,0);
  handlers.activate({waitUntil:p=>pending=p});await pending;
 });
-test('White and AMOLED controls exist on every route and persist explicit selection',async()=>{
+test('Light, Dark and AMOLED controls exist on every route and persist explicit selection',async()=>{
  const f=fixture(),api=await script.runInContext(f.ctx);
  for(const hash of ['#home','#chapter/values','#page/p006','#bookmarks','#notes']){
   f.location.hash=hash;api.render();
   const html=f.node('#app').innerHTML;
-  assert.ok(html.includes('data-theme="light"'));assert.ok(html.includes('data-theme="dark"'));
+  assert.ok(html.includes('data-theme="light"'));assert.ok(html.includes('data-theme="dark"'));assert.ok(html.includes('data-theme="amoled"'));
   assert.ok(html.indexOf('data-theme="dark"')<html.indexOf('</header>'));
  }
  f.location.hash='#page/p006';api.render();
- for(const value of ['dark','light']){
+ for(const value of ['dark','amoled','light']){
   await f.listeners.document.click({target:{closest:selector=>selector==='[data-theme]'?{dataset:{theme:value}}:null}});
-  assert.equal(api.getState().dark,value==='dark');
-  assert.equal(JSON.parse([...f.storage.values()][0]).dark,value==='dark');
+  assert.equal(api.getState().theme,value);assert.equal(api.getState().dark,value!=='light');
+  assert.equal(JSON.parse([...f.storage.values()][0]).theme,value);
   assert.equal(f.location.hash,'#page/p006');
  }
 });
+
+test('Map enlargement opens, zooms and closes without changing the lesson or translation',async()=>{
+ const f=fixture(),api=await script.runInContext(f.ctx);f.location.hash='#page/p021';api.switchLanguage('en');
+ const html=f.node('#app').innerHTML;assert.ok(html.includes('Administrative map of France'));assert.ok(html.includes('visuals/carte-france.jpg'));assert.ok(html.includes(content.pages[20].en.html));
+ await f.listeners.document.click({target:{closest:s=>s==='[data-figure]'?{dataset:{figure:'carte-france'},focus(){}}:null}});
+ assert.equal(f.node('#figure-dialog').open,true);assert.ok(f.node('#figure-image').src.endsWith('carte-france.jpg'));
+ f.node('#figure-zoom').events.click();assert.equal(f.node('#figure-image').style.width,'1800px');
+ f.node('#figure-zoom').events.click();assert.equal(f.node('#figure-image').style.width,'100%');
+ f.node('#close-figure').events.click();assert.equal(f.node('#figure-dialog').open,false);assert.equal(f.location.hash,'#page/p021');assert.equal(api.getState().language,'en');
+});
+test('Homepage purpose is translated and leaves the reading action first',async()=>{
+ const f=fixture(),api=await script.runInContext(f.ctx);
+ for(const [l,heading] of [['fr','POURQUOI CE GUIDE ?'],['en','WHY THIS GUIDE?']]){api.switchLanguage(l);const html=f.node('#app').innerHTML;assert.ok(html.includes(heading));assert.ok(html.indexOf('hero-buttons')<html.indexOf('why-guide'));}
+});
+
+test('Compact phone appearance selector persists all three themes',async()=>{const f=fixture(),api=await script.runInContext(f.ctx);for(const value of ['dark','amoled','light']){await f.listeners.document.change({target:{id:'theme-select',value}});assert.equal(api.getState().theme,value);assert.ok(f.node('#app').innerHTML.includes('value="'+value+'" selected'));}});

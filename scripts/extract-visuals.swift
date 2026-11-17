@@ -1,0 +1,8 @@
+import Foundation
+import PDFKit
+import AppKit
+let doc=PDFDocument(url:URL(fileURLWithPath:CommandLine.arguments[1]))!
+let manifestURL=URL(fileURLWithPath:CommandLine.arguments[2]);var manifest=try JSONSerialization.jsonObject(with:Data(contentsOf:manifestURL)) as! [String:Any]
+var figures=manifest["figures"] as! [[String:Any]]
+for i in figures.indices {let f=figures[i];let p=doc.page(at:(f["page"] as! Int)-1)!;let crop=f["crop"] as! [Double];let big=p.thumbnail(of:NSSize(width:2200,height:3200),for:.mediaBox);let cg=NSBitmapImageRep(data:big.tiffRepresentation!)!.cgImage!;let rect=CGRect(x:crop[0]*Double(cg.width),y:crop[1]*Double(cg.height),width:crop[2]*Double(cg.width),height:crop[3]*Double(cg.height)).integral;let cut=cg.cropping(to:rect)!;let image=NSImage(cgImage:cut,size:NSSize(width:cut.width,height:cut.height));let width=min(cut.width,[18,21,22,23,38,47,69,72,75].contains(f["page"] as! Int) ? 1800:1000);let height=Int(Double(cut.height)*Double(width)/Double(cut.width));let canvas=NSImage(size:NSSize(width:width,height:height));canvas.lockFocus();NSColor.white.setFill();NSRect(x:0,y:0,width:width,height:height).fill();image.draw(in:NSRect(x:0,y:0,width:width,height:height));canvas.unlockFocus();let bitmap=NSBitmapImageRep(data:canvas.tiffRepresentation!)!;let bytes=bitmap.representation(using:.jpeg,properties:[.compressionFactor:0.82])!;try bytes.write(to:URL(fileURLWithPath:CommandLine.arguments[3]).appendingPathComponent(f["src"] as! String));figures[i]["width"]=width;figures[i]["height"]=height;print("\(f["id"]!): \(width)x\(height) \(bytes.count)")}
+manifest["figures"]=figures;try JSONSerialization.data(withJSONObject:manifest,options:[.prettyPrinted,.sortedKeys,.withoutEscapingSlashes]).write(to:manifestURL)
