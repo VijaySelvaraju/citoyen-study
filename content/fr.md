@@ -30,7 +30,7 @@ Mai 2026.
 
 ## Page 2 — Page blanche
 
-[Page blanche : aucun texte de fond.]
+*La page 2 du livret officiel est blanche. Elle est conservée ici pour respecter la numérotation d’origine.*
 
 ## Page 3 — Avant-propos
 

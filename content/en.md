@@ -27,7 +27,7 @@ Ministry of the Interior. Liberty, Equality, Fraternity.
 
 ## Page 2 — Blank page
 
-No substantive text.
+*Page 2 is blank in the official booklet. We’ve kept it here so the page numbers match the original.*
 
 ## Page 3 — Foreword
 
