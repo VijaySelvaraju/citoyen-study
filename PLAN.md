@@ -28,9 +28,9 @@ Keep progress/bookmarks/preferences in localStorage with defensive parsing. Expo
 
 ## 4. V1 release gates
 
-Automated gates passed: content alignment and coverage, notes coverage, state validation, search, route rendering, persistence actions, static paths and mocked cache behavior. Remaining manual gates: responsive layout and scrolling, keyboard and focus accessibility, long tables, phone install flow, offline reload, and update behavior on actual HTTPS deployment.
+Automated gates passed: content alignment and coverage, notes coverage, state validation, search, route rendering, persistence actions, static paths and mocked cache behavior. Hosted-browser checks passed for the foreword at viewport settings from 320 to 820 px, white/AMOLED switching and reload persistence, and wide bilingual columns. Remaining manual gates: broader responsive content coverage, keyboard and focus accessibility, long tables, phone install flow, offline reload, and update behavior.
 
-The current deliverable includes the source, a deployment workflow, prebuilt static files and a standalone downloadable reader. Publication is outstanding: a GitHub repository destination and working authentication are needed. No paid hosting is required.
+The current deliverable includes the source, a deployment workflow, prebuilt static files and a standalone downloadable reader. Published on 17 November 2026: https://vijayselvaraju.github.io/citoyen-study/ from https://github.com/VijaySelvaraju/citoyen-study. The initial build/test and deploy jobs passed. No paid hosting is required.
 
 ## 5. V1.1 — strengthen learning and content confidence
 

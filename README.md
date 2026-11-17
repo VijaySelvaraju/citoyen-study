@@ -4,7 +4,9 @@ A bilingual, mobile-friendly study reader for the **May 2026 Livret du citoyen**
 
 ## Use it now
 
-Open **Citoyen.html** in a modern browser. It contains the entire reader, styles and both languages, and needs no server or internet to read. External source links require a connection. Browser handling of local-file storage varies: export your progress if you want a reliable backup. Installation as a PWA requires the hosted version below.
+Open the live guide at **https://vijayselvaraju.github.io/citoyen-study/**.
+
+For a portable copy, run `npm run build` followed by `python3 scripts/standalone.py`, then open the generated **Citoyen.html** in a modern browser. It contains the entire reader, styles and both languages, and needs no server or internet to read. External source links require a connection. Browser handling of local-file storage varies: export your progress if you want a reliable backup. Installation as a PWA requires the hosted version below.
 
 ## Version 1
 
@@ -81,9 +83,11 @@ On 17 November 2026, **14 automated tests passed**, including:
 - Cross-language, accent-insensitive search, escaped display text, malformed saved-state handling, read/bookmark actions and persistence.
 - Manifest paths, cache asset coverage, private-reference exclusion and a mocked service-worker offline/cache lifecycle.
 
-JavaScript syntax and the Python build pass. These checks are not visual browser tests. The environment blocked local HTTP server binding and local-file browser preview; real desktop/mobile rendering, browser installation, service-worker update UX and device offline behavior remain **unverified in an actual browser**. GitHub authentication could not be verified, so the project was not published.
+JavaScript syntax and the Python build pass. The guide was published on 17 November 2026 at https://vijayselvaraju.github.io/citoyen-study/ from this public repository. GitHub Actions run [44181224568](https://github.com/VijaySelvaraju/citoyen-study/actions/runs/44181224568) passed both build/test and deployment jobs.
 
-Before announcing a public release: verify at 390 px and 1440 px; exercise keyboard/dialog navigation; test English and comparison modes on page 78's long text/table; mark/bookmark/reload; export/import; enable airplane mode after the offline indicator; verify a deployed update; and check iOS/Android installation. Review source reuse conditions before applying a blanket content license.
+Hosted-browser checks covered viewport settings of 320, 360, 390, 430, 768 and 820 px (the browser reserves 15 px for its scrollbar). The tested foreword page had no document-level horizontal overflow. At 820 px, French and English panels appeared in two columns. The AMOLED body background computed to rgb(0, 0, 0); white mode computed to rgb(255, 255, 255), persisted after reload, and comparison remained selected. The home screen reported offline preparation complete. No browser console errors were observed during these checks.
+
+Still pending: physical Galaxy Z Fold8 testing, Safari/Chrome/Samsung Internet installation, airplane-mode reload, deployed-update UX, keyboard/dialog accessibility, long-table visual checks and real folding transitions. An offline-ready indicator alone does not establish a successful offline reload. Review source reuse conditions before applying a blanket content license.
 
 ## Roadmap
 
@@ -105,6 +109,6 @@ Responsive design targets **available CSS viewport width**, rather than assuming
 
 The UI includes safe-area insets, unrestricted browser zoom, pointer-coarse link target adjustments, and a visible navigation close button/backdrop. Unfolding reflows the same document without resetting page/bookmark state. These rules cover narrow cover screens, standard iPhone/Android browser widths, landscape, unfolded screens and tablet-sized viewports. **The exact Galaxy Z Fold8 viewport is not assumed or claimed to be device-tested.**
 
-Validation: 14 passing automated tests (content, mocked DOM behavior, explicit persistent theme switching, contrast and responsive-policy presence). An additional isolated demo check covers theme, language, navigation and width selection. These are not pixel-layout or real-browser viewport tests. Physical Fold 8, Safari/Chrome/Samsung Internet, text scaling and real folding transitions still need hands-on verification. The environment's earlier server/file-preview restrictions remain; they were not bypassed.
+Validation: 14 passing automated tests (content, mocked DOM behavior, explicit persistent theme switching, contrast and responsive-policy presence). An additional isolated demo check covers theme, language, navigation and width selection. Those automated checks are complemented by the hosted-browser checks described above. Physical Fold 8, Safari/Chrome/Samsung Internet, text scaling and real folding transitions still need hands-on verification.
 
 References: [MDN viewport concepts](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts), [Samsung Fold8 product page](https://www.samsung.com/fr/smartphones/galaxy-z-fold8/). Browser layout should not be inferred from screen diagonal alone.
