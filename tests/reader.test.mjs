@@ -34,6 +34,35 @@ test('Read and bookmark actions persist and language switching retains the page'
  const stored=JSON.parse([...f.storage.values()][0]);assert.ok(stored.read.includes('p006'));
  await click('bookmark');await click('read');assert.equal(api.getState().bookmarks.length,0);assert.equal(api.getState().read.length,0);
 });
+
+test('Skip to content focuses the lesson without changing its route or saved page',async()=>{
+ const f=fixture(),api=await script.runInContext(f.ctx);
+ for(const id of ['p021','p053']){
+  f.location.hash='#page/'+id;api.render();
+  let prevented=false,focused=false,scrolled=false;
+  f.node('#main').focus=()=>{focused=true;};
+  f.node('#main').scrollIntoView=()=>{scrolled=true;};
+  await f.listeners.document.click({preventDefault(){prevented=true;},target:{closest:selector=>selector==='.skip'?{}:null}});
+  assert.ok(prevented&&focused&&scrolled);
+  assert.equal(f.location.hash,'#page/'+id);
+  assert.equal(api.getState().last,id);
+ }
+});
+
+test('Page selector stays above the lesson and clear of previous and next navigation',async()=>{
+ const f=fixture(),api=await script.runInContext(f.ctx);
+ for(const language of ['fr','en','both']){
+  f.location.hash='#page/p021';api.switchLanguage(language);
+  const html=f.node('#app').innerHTML;
+  assert.equal((html.match(/id="jump-page"/g)||[]).length,1);
+  assert.ok(html.indexOf('id="jump-page"')<html.indexOf('reader-title'));
+  const navigation=html.slice(html.indexOf('<nav class="page-navigation"'),html.indexOf('</nav>',html.indexOf('<nav class="page-navigation"')));
+  assert.ok(navigation.includes('#page/p020')&&navigation.includes('#page/p022'));
+  assert.ok(!navigation.includes('<select'));
+ }
+ await f.listeners.document.change({target:{id:'jump-page',value:'p053'}});
+ assert.equal(f.location.hash,'#page/p053');
+});
 test('Search renders bilingual results and safely handles HTML-like queries',async()=>{
  const f=fixture(),api=await script.runInContext(f.ctx);api.openSearch();
  f.node('#search-input').events.input({target:{value:'laicite'}});assert.ok(f.node('#results').innerHTML.includes('#page/p010'));

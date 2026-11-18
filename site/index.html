@@ -8,10 +8,20 @@
 </head>
 <body>
 <a class="skip" href="#main">Aller au contenu / Skip to content</a>
-<div id="app"><p class="loading">Ouverture du livret… · Opening your guide…</p></div>
+<div id="app">
+<main class="main loading-guide" id="main" tabindex="-1">
+<h1>Citoyen</h1>
+<p>Étudiez le Livret du citoyen en français et en anglais, page par page.</p>
+<p lang="en">Study the Citizen’s Booklet in French and English, page by page.</p>
+<p>Édition source / Source edition · Mai / May 2026</p>
+<p><a href="https://www.immigration.interieur.gouv.fr/documentation/guides-textes-et-brochures/livret-du-citoyen.html" target="_blank" rel="noopener">Livret officiel / Official booklet ↗</a></p>
+<p class="loading" role="status">Ouverture du livret… · Opening your guide…</p>
+<p><a href="./source-fr.md">Lire le texte français</a> · <a href="./source-en.md" lang="en">Read the English text</a></p>
+<noscript><p>Pour utiliser le lecteur interactif, activez JavaScript. Les textes ci-dessus restent accessibles.</p><p lang="en">Enable JavaScript to use the interactive reader. The texts linked above are available to read.</p></noscript>
+</main>
+</div>
 <dialog id="search-dialog" aria-labelledby="search-label"><div class="search-head"><label id="search-label" for="search-input">Rechercher / Search</label><button class="icon-button" id="close-search" aria-label="Fermer / Close">✕</button></div><input id="search-input" type="search" autocomplete="off" placeholder="Laïcité, 1789, droits…"><div id="results" aria-live="polite"></div></dialog>
 <dialog id="about-dialog" aria-labelledby="about-title"><div class="search-head"><h2 id="about-title">À propos / About</h2><button class="icon-button" id="close-about" aria-label="Fermer / Close">✕</button></div><div id="about-body"></div></dialog>
-<dialog id="figure-dialog" aria-labelledby="figure-title" aria-describedby="figure-caption"><div class="figure-toolbar"><h2 id="figure-title"></h2><button class="soft-button" id="figure-zoom" aria-pressed="false">Taille réelle / zoom</button><button class="soft-button" id="close-figure">Fermer ✕</button></div><div id="figure-pan" tabindex="0" aria-label="Image agrandie / Enlarged image"><img id="figure-image" alt=""></div><p id="figure-caption"></p><a id="figure-source" target="_blank" rel="noopener"></a></dialog>
+<dialog id="figure-dialog" aria-labelledby="figure-title" aria-describedby="figure-caption"><div class="figure-toolbar"><h2 id="figure-title">Image du livret / Booklet image</h2><button class="soft-button" id="figure-zoom" aria-pressed="false">Taille réelle / zoom</button><button class="soft-button" id="close-figure">Fermer ✕</button></div><div id="figure-pan" tabindex="0" aria-label="Image agrandie / Enlarged image"><img id="figure-image" alt=""></div><p id="figure-caption"></p><a id="figure-source" target="_blank" rel="noopener"></a></dialog>
 <div id="toast" role="status"></div>
-<noscript><p>This interactive reader needs JavaScript. You can still read the complete <a href="./source-fr.md">French extract</a> or <a href="./source-en.md">English translation</a>.</p></noscript>
 </body></html>
