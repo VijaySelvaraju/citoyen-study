@@ -177,7 +177,7 @@ h1,h2,h3,.nav-link,.reader-top a{overflow-wrap:anywhere}
   margin-left: auto;
 }
 .page-jump label { font-size: 12px; color: var(--muted); }
-.page-jump .page-select { width: 100%; min-width: 0; }
+.page-jump .page-select { width: 100%; max-width: 100%; min-width: 0; }
 .reader-toolbar { justify-content: flex-end; margin-bottom: 24px; }
 
 h1 {
