@@ -41,7 +41,7 @@ test('Skip to content focuses the lesson without changing its route or saved pag
   f.location.hash='#page/'+id;api.render();
   let prevented=false,focused=false,scrolled=false;
   f.node('#main').focus=()=>{focused=true;};
-  f.node('#main').scrollIntoView=()=>{scrolled=true;};
+  f.ctx.window.scrollTo=(x,y)=>{scrolled=x===0&&y===0;};
   await f.listeners.document.click({preventDefault(){prevented=true;},target:{closest:selector=>selector==='.skip'?{}:null}});
   assert.ok(prevented&&focused&&scrolled);
   assert.equal(f.location.hash,'#page/'+id);

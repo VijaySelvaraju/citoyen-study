@@ -39,7 +39,7 @@ if(e.target.closest('.skip')){
  e.preventDefault();
  const main=$('#main');
  main?.focus({preventScroll:true});
- main?.scrollIntoView({block:'start'});
+ window.scrollTo(0,0);
  return;
 }
 const figure=e.target.closest('[data-figure]');if(figure){openFigure(figure.dataset.figure,figure);return;}const theme=e.target.closest('[data-theme]');if(theme){setTheme(theme.dataset.theme);const selected=$('[data-theme="'+theme.dataset.theme+'"]');selected?.focus({preventScroll:true});return;}const language=e.target.closest('[data-language]');if(language){switchLanguage(language.dataset.language);return;}const b=e.target.closest('[data-action]');if(!b)return;const a=b.dataset.action,p=route().kind==='page'?page(route().id):null;
